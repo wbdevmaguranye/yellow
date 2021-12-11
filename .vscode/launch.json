@@ -1,0 +1,17 @@
+{
+    "name": "Debug Hare Dev",
+    "type": "node",
+    "request": "launch",
+    "protocol": "inspector",
+    "program": "${workspaceRoot}/node_modules/bin/nuxt",
+    "stopOnEntry": false,
+    "args": [
+        "dev"
+    ],
+    "cwd": "${workspaceRoot}",
+    "sourceMaps": true,
+    "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "nuxt:*,app"
+    }
+}
