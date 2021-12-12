@@ -13,15 +13,7 @@
         v-slot:default="{
           pending,
           errorMsg,
-          data,
-          pageNumber,
-          next,
-          prev,
-          first,
-          getRecordList,
-          addRecord,
-          deleteRecord,
-          getFields
+          data
         }"
       >
         <div class="container mx-auto">
@@ -117,7 +109,7 @@ export default {
         },
         {
           field: "vomiting",
-          label: "Nausea,diarrhoea,vomiting"
+          label: "Nausea,diarrhoea"
         },
 
         {
