@@ -130,7 +130,7 @@ export default {
               inputmode: "text",
               validation: "required",
               "validation-name": "Captured temperature",
-              "outer-class": ["col-span-6 md:w-2/4 mr-4"]
+              "outer-class": ["w-2/4 mr-4"]
             },
             {
               type: "select",
@@ -144,7 +144,7 @@ export default {
                 { value: "Yes", label: "Yes" },
                 { value: "No", label: "No" }
               ],
-              "outer-class": ["col-span-6 md:flex-grow"]
+              "outer-class": ["flex-grow"]
             }
           ]
         },
@@ -154,7 +154,7 @@ export default {
           children: [
             {
               type: "select",
-              label: "c. Shortness of breath or difficulty breathing",
+              label: "c. Shortness of breath",
               name: "shortness_of_breath",
               inputmode: "select",
               placeholder: "Select an option",
@@ -236,7 +236,7 @@ export default {
             },
             {
               type: "select",
-              label: "h. Nausea, diarrhoea, vomiting",
+              label: "h. Nausea, diarrhoea",
               name: "vomiting",
               inputmode: "select",
               placeholder: "Select an option",
