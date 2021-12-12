@@ -148,8 +148,8 @@
         class="col-span-6 md:col-span-6"
         type="select"
         name="first_loan_this_year"
-        label="Is this your first loan with wozipo this year?"
-        placeholder="Is this your 1st loan with wozipo this year?"
+        label="Is this your first loan with yellowdot this year?"
+        placeholder="Is this your 1st loan with yellowdot this year?"
         validation="required"
         validation-name="Duration of Payment"
         :options="{

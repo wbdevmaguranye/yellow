@@ -59,7 +59,7 @@
       that you maybe offred.
     </p>
     <p class="mt-4">
-      <strong>2.</strong> By signing below you agree that Wozipo may:
+      <strong>2.</strong> By signing below you agree that yellowdot may:
     </p>
     <p class="mt-4">
       <strong> 2.1.</strong> Conduct any enquiry necessary to process your
@@ -89,7 +89,7 @@ export default {
     ...mapGetters(["isAuthenticated"]),
     ...mapState(["authUser", "isLoading"]),
     ...mapState("error", ["error"]),
-    ...mapState("applicationStore", ["application"]),
+    ...mapState("applicationStore", ["application"])
   },
   methods: {
     ...mapActions("storagefs", ["uploadFile", "readData", "deleteFile"]),
@@ -98,7 +98,7 @@ export default {
         file: myFile,
         path: `files/${this.authUser.id}/${this.application.id}/${myFile.name}`,
         saveUrl: `AppDetails/${this.authUser.id}/DocInfo/${this.application.id}/files`,
-        fileMeta: { docType: type },
+        fileMeta: { docType: type }
       });
       console.log(filedata);
       return filedata;
@@ -106,7 +106,7 @@ export default {
     async selectFile(e, type) {
       this.selectedFiles[type] = {
         name: e.target.files[0].name,
-        file: e.target.files[0],
+        file: e.target.files[0]
       };
       const fileInfo = await this.uploadTheFile(e.target.files[0], type);
 
@@ -125,7 +125,7 @@ export default {
         name = this.selectedFiles[type].name;
       }
       return name;
-    },
+    }
   },
   data() {
     return {
@@ -136,25 +136,25 @@ export default {
           desc: "Proof of residence/address",
           name: "",
           file: {},
-          url: "",
+          url: ""
         },
         {
           id: 3,
           desc: "Proof of payment of initiation fee",
           name: "",
           file: {},
-          url: "",
+          url: ""
         },
         {
           id: 4,
           desc: "Proof of credit life insurance policy",
           name: "",
           file: {},
-          url: "",
-        },
+          url: ""
+        }
       ],
-      selectedFiles: {},
+      selectedFiles: {}
     };
-  },
+  }
 };
 </script>

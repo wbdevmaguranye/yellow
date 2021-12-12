@@ -1,4 +1,4 @@
-# wozipo-loan-app
+# yellowdot
 
 ## Build Setup
 

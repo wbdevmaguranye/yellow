@@ -74,7 +74,7 @@ export default {
       this.$axios.setToken(this.authUser.idToken, "Bearer");
       this.$axios
         .$get(
-          `http://localhost:5001/wozipo/us-central1/app/GetLoanDetails?ApplicationId=0JZLlkJtZwHlwnBVmX2w&UserId=iMsADod8pvFFMIXGRFNoG5qDFyEM`
+          `http://localhost:5001/yellowdot/us-central1/app/GetLoanDetails?ApplicationId=0JZLlkJtZwHlwnBVmX2w&UserId=iMsADod8pvFFMIXGRFNoG5qDFyEM`
         )
         .then(result => {
           // Read result of the Cloud Function.

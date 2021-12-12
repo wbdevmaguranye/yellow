@@ -21,7 +21,7 @@ exports.helloWorld = functions.https.onRequest(async (request, response) => {
 
 exports.helloWorldTwo = functions.https.onCall(async (data, context) => {
   //   const isValidBearer = await validBearer(request);
-  const key = functions.config().wozipobearer.key;
+  const key = functions.config().yellowdotbearer.key;
   console.log(data);
   console.log(context.token);
   if (key == context.token) {
@@ -294,7 +294,7 @@ exports.makeUppercase = functions.firestore
 
 async function validBearer(request) {
   //https://www.uuidgenerator.net/  generate a token using...
-  const key = functions.config().wozipobearer.key;
+  const key = functions.config().yellowdotbearer.key;
 
   const authorization = request.get("Authorization");
   const split = authorization ? authorization.split("Bearer ") : [];

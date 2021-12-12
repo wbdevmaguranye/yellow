@@ -14,7 +14,7 @@ export default {
     onSubmitted(postData) {
       axios
         .post(
-          "https://wozipo-b462e-default-rtdb.firebaseio.com/applications.json",
+          "https://yellowdot-b462e-default-rtdb.firebaseio.com/applications.json",
           postData
         )
         .then(result => console.log(result))
