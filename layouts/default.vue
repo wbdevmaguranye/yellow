@@ -31,7 +31,7 @@
                 Finance Products
               </NuxtLink> -->
               <NuxtLink
-                to="registration"
+                to="/registration"
                 class="inline-flex items-center px-1 pt-1 text-lg font-medium text-yellow-900 hover:text-gray-700 "
               >
                 Click here to capture visitors information
