@@ -10,12 +10,21 @@
             src="~/assets/img/yellowdotlogo.jpeg"
             alt="Workflow"
           />
-          <h2 class="mt-6 text-3xl font-bold text-center text-gray-600">
-            Sign up or login
-          </h2>
+          <p class="mt-6 text-3xl font-bold text-center text-gray-600">
+            login portal
+          </p>
         </div>
+
+        <p class="text-sm text-red-600">
+          Please:
+          <a href="/reset" class="text-yellow-600 hover:text-indigo-500"
+            >click here</a
+          >
+          or the set new password link below to activate your admin account.
+        </p>
+
         <div class="px-4 py-6 rounded shadow-lg">
-          <div class="mt-1">
+          <div class="mt-0">
             <form
               @submit.prevent="postData"
               action="#"
@@ -47,38 +56,30 @@
                 />
               </div>
 
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <input
-                    id="remember_me"
-                    name="remember_me"
-                    type="checkbox"
-                    class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                  />
-                  <label
-                    for="remember_me"
-                    class="block ml-4 text-sm text-yellow-600"
+              <div class="flex justify-between">
+                <div class="text-sm">
+                  <label for="" class="text-gray-600">New?</label>
+                  <a
+                    href="/reset"
+                    class="text-yellow-600 hover:text-indigo-500"
                   >
-                    Remember me
-                  </label>
+                    Click here to set new password.</a
+                  >
                 </div>
 
                 <div class="text-sm">
-                  <nuxt-link
-                    to="/reset"
-                    class="font-medium text-yellow-600 hover:text-indigo-500"
+                  <label class="text-gray-600">
+                    Forgot password?
+                  </label>
+                  <a
+                    href="/reset"
+                    class="text-yellow-600 hover:text-indigo-500"
                   >
-                    Forgot your password?
-                  </nuxt-link>
+                    Click here.
+                  </a>
                 </div>
               </div>
               <div>
-                <nuxt-link
-                  to="/register"
-                  class="inline-flex justify-center px-10 py-3 text-base font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Sign up
-                </nuxt-link>
                 <button
                   type="submit"
                   class="inline-flex justify-center px-10 py-3 text-base font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -102,9 +103,8 @@ export default {
   },
   data() {
     return {
-      email: "jmaguranye@gmail.com",
-      password: "@@testing123",
-      fullname: ""
+      email: "",
+      password: ""
     };
   },
   methods: {
@@ -116,11 +116,15 @@ export default {
           password: this.password,
           routerInfo: "/visitors"
         };
+
         this.login(payload);
       } catch (err) {
         console.log(err);
       }
     }
+  },
+  mounted() {
+    // this.$router.go();
   }
 };
 </script>

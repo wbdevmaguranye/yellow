@@ -13,10 +13,45 @@ export const state = () => ({
   livingCircumstances: null,
   documents: null,
   adminLoanSetUpInfo: null,
-  profiles: null
+  profiles: null,
+  record: [],
+  userCountry: { countries: "Japan" }
 });
 
+const defaultState = {
+  application: {},
+  applications: [],
+  personalInfo: null,
+  employmentInfo: null,
+  nextOfKin: null,
+  bankingInfo: null,
+  loanInfo: null,
+  incomeExpenditure: null,
+  dependents: null,
+  livingCircumstances: null,
+  documents: null,
+  adminLoanSetUpInfo: null,
+  profiles: null,
+  record: [],
+  userCountry: null
+};
+
 export const mutations = {
+  setUserCountry(state, userCountry) {
+    state.userCountry = userCountry;
+  },
+  resetState(state) {
+    state.record.splice(0);
+    Object.assign(state, defaultState);
+    console.log(state.record);
+  },
+  resetCountry(state, userCountry) {
+    state.userCountry = null;
+  },
+  setCovidRecord(state, record) {
+    if (record != null) state.record.push(record);
+  },
+
   setApplication(state, application) {
     state.application = application;
   },
@@ -56,6 +91,17 @@ export const mutations = {
 };
 
 export const actions = {
+  resetDefaultState({ commit }) {
+    commit("resetState");
+  },
+  setUserCountryAction({ commit }, userCountry) {
+    commit("setUserCountry", userCountry);
+  },
+
+  setCovidRecordAction({ commit }, record) {
+    commit("setCovidRecord", record);
+  },
+
   setApplicationAction({ commit }, application) {
     commit("setApplication", application);
   },
@@ -269,6 +315,16 @@ export const getters = {
   // getDocs: state => {
   //   return state.documents;
   // },
+  getCountryInfo: state => {
+    if (state.userCountry) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  getCovidRecordInfo: state => {
+    return state.record;
+  },
   getBankingInfo: state => {
     if (state.bankingInfo) {
       return true;

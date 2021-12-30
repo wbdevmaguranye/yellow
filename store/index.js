@@ -130,6 +130,8 @@ export const actions = {
       await this.$fire.authReady();
       await this.$fire.auth.signOut();
       this.commit("LOGOUT");
+
+      localStorage.clear();
       this.$router.push("/");
     } catch (e) {
       console.error(e);

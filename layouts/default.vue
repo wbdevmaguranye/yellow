@@ -34,14 +34,14 @@
                 to="/registration"
                 class="inline-flex items-center px-1 pt-1 text-lg font-medium text-yellow-900 hover:text-gray-700 "
               >
-                Click here to capture visitors information
+                Visitors - click here
               </NuxtLink>
               <NuxtLink
                 v-show="!isAuthenticated"
                 to="/login"
                 class="inline-flex items-center px-1 pt-1 text-lg font-medium text-yellow-900 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-700"
               >
-                Login here to see visitors information
+                Administrators - click here
               </NuxtLink>
               <NuxtLink
                 v-show="isAuthenticated"
@@ -52,7 +52,7 @@
               </NuxtLink>
               <a
                 v-show="isAuthenticated"
-                @click="signOut"
+                @click="signingOut()"
                 class="inline-flex items-center px-1 pt-1 text-lg font-medium text-yellow-900 border-b-2 border-transparent cursor-pointer hover:border-gray-300 hover:text-gray-700"
               >
                 Sign out
@@ -123,31 +123,6 @@
                   id="user-menu"
                   aria-expanded="false"
                   aria-haspopup="true"
-                >
-                  <NuxtLink
-                    v-if="!isAuthenticated"
-                    to="/register"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    role="menuitem"
-                  >
-                    Register
-                  </NuxtLink>
-                  <!-- <NuxtLink
-                    v-else-if="isAuthenticated"
-                    to="/profile"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    role="menuitem"
-                  >
-                    Your Profile
-                  </NuxtLink> -->
-                </button>
-                <button
-                  @click="showProfile = !showProfile"
-                  type="button"
-                  class="flex items-center max-w-xs text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  id="user-menu"
-                  aria-expanded="false"
-                  aria-haspopup="true"
                 ></button>
                 <button
                   @click="showProfile = !showProfile"
@@ -167,7 +142,7 @@
                   </NuxtLink>
                   <a
                     v-show="isAuthenticated"
-                    @click="signOut"
+                    @click="signingOut()"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     role="menuitem"
                   >
@@ -245,7 +220,7 @@
             to="/registration"
             class="block py-2 pl-3 pr-4 text-base font-medium text-yellow-900 border-l-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
           >
-            Click here to capture visitors information
+            Visitors - click here
           </NuxtLink>
 
           <NuxtLink
@@ -253,7 +228,7 @@
             to="/login"
             class="block py-2 pl-3 pr-4 text-base font-medium text-yellow-900 border-l-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
           >
-            Login here to see visitors information
+            Administrators - click here
           </NuxtLink>
           <nuxt-link
             v-show="isAuthenticated"
@@ -263,7 +238,7 @@
           >
           <a
             v-show="isAuthenticated"
-            @click="signOut"
+            @click="signingOut()"
             class="block py-2 pl-3 pr-4 text-base font-medium text-yellow-900 border-l-4 border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
           >
             Sign out
@@ -300,9 +275,15 @@ export default {
     };
   },
   methods: {
+    ...mapActions("applicationStore", ["resetDefaultState"]),
     ...mapActions(["signOut"]),
     gotoLink(link) {
       this.$router.push(link);
+    },
+    signingOut() {
+      console.log("I am signing out for real");
+      this.resetDefaultState();
+      this.signOut();
     }
     // getUser() {
     //   let email = this.authUser.email;

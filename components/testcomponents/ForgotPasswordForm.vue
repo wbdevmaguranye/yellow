@@ -5,7 +5,7 @@
         <div class="formSpace">
           <form @submit.prevent="forgetPassword">
             <h3 class="text-lg text-yellow-800">
-              Do you want to change your password?
+              Enter valid email address to activate or reset your password.
             </h3>
 
             <div class="form-group">

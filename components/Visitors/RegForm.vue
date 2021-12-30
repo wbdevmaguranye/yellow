@@ -1,6 +1,8 @@
 <template>
   <div class="container mx-auto">
-    <p class="mt-8 hmain">
+    <p
+      class="p-3 mt-8 text-xl tracking-tight text-justify text-gray-700 md:flex"
+    >
       Please respond to each of the following questions truthfully and to the
       best of your ability. Your participation is important to help us take
       precautionary measures to protect you and our personnel.
@@ -12,11 +14,10 @@
       class="px-4 mx-auto max-w-7xl sm:px-6 md:px-8"
     >
       <div class="pt-5">
-        <FormulateInput class="col-span-6 md:col-span-6" name="acceptTerms"
+        <FormulateInput class="col-span-6 ml-0 bg-white md:col-span-6 checked:bg-blue-600 checked:border-blue-600 " name="acceptTerms"
         disable: true type="checkbox" label="I hereby certify that the responses
         provided above are true and accurate to the best of my knowledge. "
-        placeholder="Postal Code" validation="required" validation-name="Accept
-        Terms and conditions" />
+        validation="required" validation-name="Accept Terms and conditions" />
         <FormulateInput type="submit" label="SAVE" />
       </div>
     </FormulateForm>
@@ -50,13 +51,30 @@ export default {
       schema: [
         {
           component: "h3",
-          class: "text-lg font-bold font-medium leading-6 text-gray-600 mt-6",
+          class:
+            "text-lg font-bold font-medium leading-6 text-gray-600 mt-8 mb-4",
           children: "Personal Details"
         },
-
+        {
+          type: "select",
+          label: "Select your current country of residency.",
+          name: "country",
+          inputmode: "select",
+          placeholder: "Select an country",
+          validation: "required",
+          "validation-name": "Select country",
+          options: [
+            { value: "South Africa", label: "South Africa" },
+            { value: "Cameroon", label: "Cameroon" },
+            { value: "Nigeria", label: "Nigeria" },
+            { value: "Ivory Cost", label: "Ivory Cost" }
+          ],
+          "outer-class": ["flex-grow"]
+        },
         {
           component: "div",
           class: "flex mt-4",
+
           children: [
             {
               type: "text",
@@ -222,7 +240,7 @@ export default {
           children: [
             {
               type: "select",
-              label: "g. Head or muscle aches",
+              label: "g. Head,muscle aches",
               name: "muscle_aches",
               inputmode: "select",
               placeholder: "Select an option",
