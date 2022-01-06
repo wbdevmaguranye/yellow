@@ -54,7 +54,8 @@ export default {
           projectId: "yellowdot-eef1f",
           storageBucket: "yellowdot-eef1f.appspot.com",
           messagingSenderId: "452236325240",
-          appId: "1:452236325240:web:ffdd18c20b893a72f1588d"
+          appId: "1:452236325240:web:ffdd18c20b893a72f1588d",
+          measurementId: "G-75724YCGBR"
         },
         services: {
           auth: {

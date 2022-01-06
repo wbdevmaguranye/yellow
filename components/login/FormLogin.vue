@@ -114,7 +114,7 @@ export default {
         const payload = {
           email: this.email,
           password: this.password,
-          routerInfo: "/visitors"
+          routerInfo: "/"
         };
 
         this.login(payload);
@@ -122,9 +122,6 @@ export default {
         console.log(err);
       }
     }
-  },
-  mounted() {
-    // this.$router.go();
   }
 };
 </script>

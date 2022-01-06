@@ -1,7 +1,20 @@
 <template>
   <div>
-    <h1 class="mt-6 mb-10 hmain">list of visitors</h1>
-    <div class="flex flex-col">
+    <div class="ml-8">
+      <h1
+        class="mt-4 mb-0 tracking-tight text-justify text-gray-700 mtext-sm sm:text-2xl"
+      >
+        List of visitors.
+        <button
+          @click="printDiv()"
+          class="flex justify-center px-8 py-3 text-base font-medium text-white bg-yellow-600 border border-transparent rounded-md shadow-sm mt-14 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          PrintData
+        </button>
+      </h1>
+    </div>
+
+    <div id="hameno" class="flex flex-col">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
           <div class="overflow-x-auto">
@@ -10,7 +23,7 @@
                 <tr v-if="getCovidRecordInfo">
                   <th
                     scope="col"
-                    class="px-6 py-4 text-sm font-medium text-left text-gray-900"
+                    class="px-2 py-4 text-sm font-medium text-left text-gray-900"
                     v-for="(fld, hindex) in showfields"
                     :key="hindex"
                   >
@@ -21,7 +34,7 @@
               <tbody>
                 <tr class="border-b" v-for="r in record1" :key="r.id">
                   <td
-                    class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                    class="px-2 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
                     v-for="(recc, hindex) in showfields"
                     :key="hindex"
                   >
@@ -175,8 +188,7 @@ export default {
 
             const record = JSON.parse(JSON.stringify(doc.data()));
             this.setCovidRecordAction(record);
-
-            //console.log(record);
+            //
           });
         });
     },
@@ -191,6 +203,13 @@ export default {
           ///this.userCountry = docRef.data().countries;
           this.setUserCountryAction(docRef.data());
         });
+    },
+    printDiv() {
+      var printContents = document.getElementById("hameno").innerHTML;
+      var originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
     }
   },
   watch: {
@@ -216,137 +235,4 @@ export default {
 };
 </script>
 
-<style scoped>
-* {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-body {
-  font-family: Helvetica;
-  -webkit-font-smoothing: antialiased;
-  background: rgba(71, 147, 227, 1);
-}
-h2 {
-  text-align: left;
-  font-size: 18px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: white;
-  padding: 30px 0;
-}
-
-/* Table Styles */
-
-.table-wrapper {
-  margin: 100px;
-  box-shadow: 0px 35px 100px rgba(0, 0, 0, 0.2);
-}
-
-.fl-table {
-  border-radius: 15px;
-  font-size: 12px;
-  font-weight: normal;
-  border: none;
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 100%;
-  white-space: prewrap;
-  background-color: white;
-}
-
-.fl-table td,
-.fl-table th {
-  text-align: center;
-  padding: 8px;
-}
-
-.fl-table td {
-  border-right: 1px solid #f8f8f8;
-  font-size: 12px;
-}
-
-.fl-table thead th {
-  color: #ffffff;
-  background: #4fc3a1;
-}
-
-.fl-table thead th:nth-child(odd) {
-  color: #ffffff;
-  flex-shrink: 3;
-  background: #324960;
-}
-
-.fl-table tr:nth-child(even) {
-  background: #f8f8f8;
-}
-
-/* Responsive */
-
-@media (max-width: 767px) {
-  .fl-table {
-    display: block;
-    width: 100%;
-  }
-  .table-wrapper:before {
-    content: "Scroll vertically >";
-    display: block;
-    text-align: right;
-    font-size: 11px;
-    color: white;
-    padding: 0 0 10px;
-  }
-  .fl-table thead,
-  .fl-table tbody,
-  .fl-table thead th {
-    display: block;
-  }
-  .fl-table thead th:last-child {
-    border-bottom: none;
-  }
-  .fl-table thead {
-    float: left;
-  }
-  .fl-table tbody {
-    width: auto;
-    position: absolute;
-    overflow-x: auto;
-  }
-  .fl-table td,
-  .fl-table th {
-    padding: 20px 0.625em 0.625em 0.625em;
-    height: 60px;
-    vertical-align: middle;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: auto;
-    width: 120px;
-    font-size: 13px;
-    text-overflow: ellipsis;
-  }
-  .fl-table thead th {
-    text-align: left;
-    border-bottom: 1px solid #f7f7f9;
-  }
-  .fl-table tbody tr {
-    display: table-cell;
-  }
-  .fl-table tbody tr:nth-child(odd) {
-    background: none;
-  }
-  .fl-table tr:nth-child(even) {
-    background: transparent;
-  }
-  .fl-table tr td:nth-child(odd) {
-    background: #f8f8f8;
-    border-right: 1px solid #e6e4e4;
-  }
-  .fl-table tr td:nth-child(even) {
-    border-right: 1px solid #e6e4e4;
-  }
-  .fl-table tbody td {
-    display: block;
-    text-align: center;
-  }
-}
-</style>
+<style scoped></style>

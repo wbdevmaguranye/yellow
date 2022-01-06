@@ -14,7 +14,8 @@
       class="px-4 mx-auto max-w-7xl sm:px-6 md:px-8"
     >
       <div class="pt-5">
-        <FormulateInput class="col-span-6 ml-0 bg-white md:col-span-6 checked:bg-blue-600 checked:border-blue-600 " name="acceptTerms"
+        <FormulateInput class="col-span-6 ml-0 bg-white md:col-span-6
+        checked:bg-blue-600 checked:border-blue-600 " name="acceptTerms"
         disable: true type="checkbox" label="I hereby certify that the responses
         provided above are true and accurate to the best of my knowledge. "
         validation="required" validation-name="Accept Terms and conditions" />
@@ -66,8 +67,10 @@ export default {
           options: [
             { value: "South Africa", label: "South Africa" },
             { value: "Cameroon", label: "Cameroon" },
+            { value: "Benin", label: "Benin" },
             { value: "Nigeria", label: "Nigeria" },
-            { value: "Ivory Cost", label: "Ivory Cost" }
+            { value: "Congo Brazavil", label: "Congo Brazavil" },
+            { value: "Guinea", label: "Guinea" }
           ],
           "outer-class": ["flex-grow"]
         },

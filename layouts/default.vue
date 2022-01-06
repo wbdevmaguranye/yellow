@@ -85,14 +85,14 @@
                 <button
                   @click="showProfile = !showProfile"
                   type="button"
-                  class="flex items-center max-w-xs text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  class="flex items-center max-w-xs text-sm bg-white rounded-full "
                   id="user-menu"
                   aria-expanded="false"
                   aria-haspopup="true"
                 >
                   <img
-                    class="w-8 h-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=hOSY8U8oV6&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    class="w-8 h-8 mr-4 rounded-full"
+                    src="https://images.unsplash.com/photo-1490814525860-594e82bfd34a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsYWNrJTIwY2lyY2xlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                     alt=""
                   />
                 </button>
@@ -212,7 +212,7 @@
       <div v-show="showMobile" class="sm:hidden" id="mobile-menu">
         <div class="pt-2 pb-3 space-y-1">
           <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" -->
-          <a href="/" class="block py-2 pl-3 pr-4 font-medium text-yellow-900">
+          <a href="/" class="npm py-2 pl-3 pr-4 font-medium text-yellow-900">
             Home
           </a>
 
